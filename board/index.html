@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    
+    <header><h1></h1></header>
+
+    <main></main>
+    
+    <form id="post" onsubmit="post(event)">
+        <h2>--- --- -- ---</h2>
+        <label for="image">
+            <img alt="preview" id="preview"
+                src="../img/apple-touch-icon.png">
+        </label>
+        <input type="file" accept="image/*"
+            name="image" id="image" 
+            oninput="loadPreview(event)">
+        <textarea name="description" id="description"
+            required rows="5" placeholder="text here"></textarea>
+        <input type="submit" value="POST DRAFT">
+        <button onclick="closeForm()">CLOSE FORM</button>
+
+        <div id="mask">
+            <h4>POOSTING</h4>
+        </div>
+    </form>
+
+    <script src="app.js"></script>
+    <script src="form.js"></script>
+</body>
+</html>

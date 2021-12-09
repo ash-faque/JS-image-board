@@ -1,27 +1,19 @@
 // Cache names
-const PRE_CACHE_NAME = 'PRE_V8';
+const PRE_CACHE_NAME = 'PRE_V1';
 const DYNAMIC_CACHE_NAME = 'DYNAMIC_V1';
 // Cache assets
 const PRE_CACHE_ASSETS = [
 	'/',
 	'/index.html',
+	'/app.js',
+	'/boards.json',
+	'/style.css',
 
-	'/boards/index.json',
-
-	'/css/form.css',
-	'/css/home.css',
-	'/css/main.css',
-	'/css/posts.css',
-	'/css/toast.css',
-
-	'/img/coco_cover.jpg',
-	'img/android-chrome-192x192.png',
-
-	'/js/form.js',
-	'/js/home.js',
-	'/js/posts.js',
-	'/js/store.js',
-	'/js/toast.js',
+	'/board/index.html',
+	'/board/app.js',
+	'/board/form.js',
+	'/board/style.css',
+	'/board/form.css',
 ];
 
 
@@ -42,8 +34,9 @@ self.addEventListener('install', evt => {
 	self.skipWaiting();
 	evt.waitUntil(
 		caches.open(PRE_CACHE_NAME).then((cache) => {
-			console.log('⚙ Service worker: PRE CACHING');
+			console.log('⚙ Service worker: PRE CACHING STARTED');
 			cache.addAll(PRE_CACHE_ASSETS);
+			console.log('⚙ Service worker: PRE CACHING COMPLETED');
 		})
 	);
 });
@@ -63,20 +56,30 @@ self.addEventListener('activate', evt => {
 	self.clients.claim();
 });
 
-// fetch events
-self.addEventListener('fetch', evt => {
-	evt.respondWith(
-		(async () => {
-			try {
-				const networkResponse = await fetch(evt.request);
-				return networkResponse;
-			} catch (error) {
-				// console.log("Fetch failed:", error);
-				const cache = await caches.open(PRE_CACHE_NAME);
-				const cachedResponse = await cache.match(evt.request.url);
-				return cachedResponse;
-			}
-		})()
-	);
-	console.log(evt.request.url);
+
+// fetch event
+self.addEventListener('fetch', event => {
+	// Let the browser do its default thing
+	// for non-GET requests.
+	if (event.request.method != 'GET') return;
+	// if (event.request.url.contains('wzicaa.deta.dev')) return;
+	console.log(event.request.url)
+
+	// Prevent the default, and handle the request ourselves.
+	event.respondWith(async function () {
+		// Try to get the response from a cache.
+		const cache = await caches.open(PRE_CACHE_NAME);
+		const cachedResponse = await cache.match(event.request.url.split("?")[0].split("#")[0]);
+
+		if (cachedResponse) {
+			console.log('cache matched')
+			// If we found a match in the cache, return it, but also
+			// update the entry in the cache in the background.
+			// event.waitUntil(cache.add(event.request));
+			return cachedResponse;
+		};
+
+		// If we didn't find a match in the cache, use the network.
+		return fetch(event.request);
+	}());
 });

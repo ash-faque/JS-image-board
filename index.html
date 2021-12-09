@@ -29,13 +29,7 @@
 
     <title>COCO-CHAN</title>
 
-    <link rel="stylesheet" href="css/toast.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/home.css">
-
-    <link rel="stylesheet" href="css/posts.css">
-    <link rel="stylesheet" href="css/form.css">
-
+    <link rel="stylesheet" href="style.css">
 
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -44,87 +38,12 @@
 
 </head>
 <body>
-    <!-- toast -->
-    <div id="toasts"></div>
 
-    <!-- main section -->
-    <main>
+    <header><h1>COCO</h1></header>
 
-        <!-- for showing boards -->
-        <div class="boards"></div>
+    <main></main>
 
-        <!-- to upload posts -->
-        <form id="post" onsubmit="post(event, null)">
-            <h3 class="heading"></h3>
-            <br>
-            <label for="image">
-            <img src="img/coco_cover.jpg" 
-            alt="preview" id="preview">
-            </label>
-            <br>
-            <input type="file" accept="image/*"
-            name="image" id="image" 
-            oninput="loadPreview(event)">
-            <textarea name="description" id="description" required
-            rows="5" placeholder="Большой Брат всё видит"></textarea>
-            <input type="submit" value="POST">
-            <input type="button" value="CLOSE" 
-            onclick="closeForm()">
-        </form>
+    <script src="app.js"></script>
 
-        <!-- board content display -->
-        <div class="content"></div>
-
-
-    </main>
-
-
-    <!-- mask -->
-    <div class="mask"><h6>WAIT</h6></div>
-
-
-    <!-- fab -->
-    <div class="fab">
-        <p onclick="createThread(null, null)">NEW THREAD</p>
-        <p onclick="goHome()">BOARD INDEX</p>
-    </div>
-
-
-    <!-- firebase -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyAXYWqDn79ircpGASsLmr6Q9qqb2EYz8yw",
-          authDomain: "coco-chan-9f0bf.firebaseapp.com",
-          projectId: "coco-chan-9f0bf",
-          storageBucket: "coco-chan-9f0bf.appspot.com",
-          messagingSenderId: "156972367456",
-          appId: "1:156972367456:web:0c333c7b077ec671728d05"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-      </script>
-
-    <!-- scripts -->
-    <script src="js/store.js"></script>
-    <script src="js/toast.js"></script>
-    <script src="js/posts.js"></script>
-    <script src="js/home.js"></script>
-    <script src="js/form.js"></script>
-
-    <!-- service worker -->
-    <script>
-        if('serviceWorker' in navigator){
-            navigator.serviceWorker.register('/sw.js')
-                .then(reg => console.log('⚙ Service worker: REGISTERED'))
-                .catch(err => console.log('⚙ Service worker: FAILED TO REGISTER', err));
-        };
-    </script>
 </body>
 </html>
