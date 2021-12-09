@@ -2,6 +2,7 @@ const post_form = document.getElementById('post');
 const main = document.querySelector('main');
 
 let SITE = `http://127.0.0.1:5500`;
+    SITE = `https://cocolite.netlify.app`;
 
 let API = "http://localhost:3000";
     API = "https://wzicaa.deta.dev";
@@ -52,12 +53,6 @@ const toBoard = () => {
 
 toBoard();
 
-// service worker registration
-if('serviceWorker' in navigator){
-    navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('⚙ Service worker: REGISTERED'))
-        .catch(err => console.log('⚙ Service worker: FAILED TO REGISTER', err));
-};
 
 // loaded content renderer
 const showBoardContent = (result) => {

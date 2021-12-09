@@ -1,7 +1,3 @@
-
-const mask = document.getElementById('mask');
-
-
 // post uploading fn
 const post = (e) => {
     e.preventDefault();
@@ -14,15 +10,10 @@ const post = (e) => {
     formData.append("replyTo", REPLY_TO);
     formData.append("childOf", CHILD_OF);
 
-    mask.style.display = 'flex';
-
     fetch(`${API}/post`, {
         method: "POST",
         body: formData
     }).then(r => {
-
-        mask.style.display = 'none';
-
         r.json().then(res => {
             switch(res.code){
                 case "✅":
@@ -40,9 +31,6 @@ const post = (e) => {
             };
         });
     }).catch(e => {  
-
-        mask.style.display = 'none';    
-
         console.log(e)
     });
 
