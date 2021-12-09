@@ -12,6 +12,10 @@ const toast = (msg = '', delete_in = 0) => {
         setTimeout(() => {
             div.remove();
         }, (delete_in * 1000));
+    } else {
+        setTimeout(() => {
+            div.remove();
+        }, (5 * 1000));
     };
 };
 
