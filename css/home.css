@@ -1,0 +1,53 @@
+
+/* BOARDS */
+.boards{
+    user-select: none;
+    overflow: hidden;
+}
+.boards ul{
+    list-style: none;
+}
+
+.boards ul h3{
+    font-family: monospace;
+
+    background: #000;
+    color: #eee;
+
+    padding-right: 10px;
+    text-align: right;
+}
+
+.boards ul li{
+    cursor: pointer;
+
+    margin: 10px 0;
+
+    word-wrap: break-word;
+
+    display: flex;
+}
+
+.boards ul li h5{
+    font-family: monospace;
+
+    width: 20%;
+    padding: 5px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background: #333333;
+    color: #eee;
+}
+.boards ul li span{
+    float: right;
+    width: 80%;
+    padding: 5px 0 5px 10px;
+
+    font-weight: 600;
+    
+    background: #dbdbdbc0;
+}

@@ -1,0 +1,43 @@
+
+/* POST FORM */
+#post{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: none;
+
+    z-index: 1000;
+
+    padding: 20px;
+
+    background: #a0a0a0;
+    color: #ffee00;
+    
+    text-align: center;
+}
+#post h3{
+    font-family: monospace;
+    font-size: x-large;
+    
+    margin-top: 20px;
+}
+#post input, #post textarea{
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    
+    margin: 10px 0;
+}
+#post img{
+    width: 100%;
+}
+#post input, #post label{
+    
+    cursor: pointer;
+}

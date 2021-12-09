@@ -1,0 +1,54 @@
+
+/* TOASTER */
+#toasts{
+    z-index: 10000;
+
+    position: fixed;
+    top: 5px;
+    left: 0;
+    
+    width: 100%;
+    padding: 0 10px;
+}
+    .toast{
+        position: relative;
+        width: clamp(280px, 98%, 720px);
+        margin: 10px auto;
+
+        background: #3f3f3f;
+        color: #fff024;
+        border: 1px solid #fff024;
+        letter-spacing: 2px;
+
+        user-select: none;
+
+        transition: 1s width;
+    }
+        .msg{
+            padding: 10px;
+            display: block;
+            width: calc(100% - 50px);
+
+            font-weight: 900;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: small;
+            word-wrap: break-word;
+        }
+        .close{
+            cursor: pointer;
+
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            width: 50px;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+            background: #f724249d;
+            cursor: pointer;
+        }

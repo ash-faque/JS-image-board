@@ -1,0 +1,96 @@
+/* POST IN .CONTENT CONTAINER */
+.content h3{
+    font-family: monospace;
+
+    background: #000;
+    color: #eee;
+
+    padding-right: 10px;
+    text-align: right;
+}
+
+/* post */
+.post{
+    user-select: none;
+    overflow: hidden;
+
+    width: 100%;
+    margin: 10px auto;
+}
+
+
+.container{
+    background: #b4b4b4;
+    color: #000;
+}
+.container:focus{
+    background: #181818;
+    color: #fffb00;
+}
+
+/* links container */
+.links{
+    display: flex;
+    flex-wrap: no-wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+.links a:any-link{
+    width: 50%;
+
+    background: #445049;
+    color: #68b368;
+    
+    font-family: monospace;
+    padding: 5px 10px;
+}
+
+/* main image */
+.container img{
+    max-width: 100%;
+    padding: 5px;
+}
+
+/* main texts */
+.container p{
+    word-wrap: break-word;
+    font-weight: 600;
+    padding: 5px;
+}
+
+/* bottom spans */
+.container span, .post span{
+    cursor: pointer;
+
+    display: block;
+    width: 100%;
+    
+    padding: 5px 10px;
+
+    text-align: right;
+    font-weight: 700;
+    font-family: monospace;
+
+    background: #4d614c;
+    color: #61a561;
+}
+.post span:last-child{
+    margin-bottom: 0;
+}
+
+
+/* child posts */
+.child_post{
+    width: 95%;
+    margin: 10px auto;
+    margin-left: 5%;
+}
+.child_post .container{
+    
+    padding: 10px;
+}
+.child_post:focus{
+    background: #1f1f1f;
+    color: #fffb00;
+}

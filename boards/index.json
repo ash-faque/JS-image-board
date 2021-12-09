@@ -1,0 +1,66 @@
+{
+
+
+    "CASUAL": [
+        {
+            "N":"ART",
+            "D":"For Binary Geeks",
+            "C":"#"
+        },
+        {
+            "N":"LITERATURE",
+            "D":"For Iorn Lovers",
+            "C":"yellow"
+        },
+        {
+            "N":"CULTURE",
+            "D":"For Iorn Lovers",
+            "C":"purple"
+        }
+    ],
+
+    "BRANCHES": [
+        {
+            "N": "ME",
+            "D": "For Iorn Lovers ",
+            "C": "red"
+        },
+        {
+            "N": "CS",
+            "D": "For Binary Geeks",
+            "C": "orange"
+        },
+        {
+            "N": "EE",
+            "D": "For Binary Geeks",
+            "C": "aqua"
+        },
+        {
+            "N": "EC",
+            "D": "For Binary Geeks",
+            "C": "#4471a5"
+        }
+    ],
+
+    "INTERESTS": [
+        {
+            "N":"DYI",
+            "D":"For Binary Geeks",
+            "C":"magenta"
+        },
+        {
+            "N":"ANIME",
+            "D":"For Iorn Lovers",
+            "C":"brown"
+        }
+    ],
+
+    "COCO": [
+        {
+            "N":"RFC",
+            "D":"Request for comment - Add n Exclude features from COCO-CHAN",
+            "C":"cyan"
+        }
+    ]
+    
+}
