@@ -155,7 +155,7 @@ const renderComments = (comment_container, result) => {
         last
     } = result;
 
-    if (count === 0) comment_container.innerHTML = `<p> NO COMMENTS </p>`;
+    if (count === 0) comment_container.innerHTML = `<span> NO COMMENTS </span>`;
 
     items.forEach(comment => {
 

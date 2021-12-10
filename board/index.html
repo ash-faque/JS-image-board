@@ -15,7 +15,9 @@
     <main></main>
     
     <form id="post" onsubmit="post(event)">
+
         <h2>--- --- -- ---</h2>
+
         <label for="image">
             <img alt="preview" id="preview"
                 src="../img/apple-touch-icon.png">
@@ -23,14 +25,25 @@
         <input type="file" accept="image/*"
             name="image" id="image" 
             oninput="loadPreview(event)">
+            
         <textarea name="description" id="description"
             required rows="5" placeholder="text here"></textarea>
         <input type="submit" value="POST DRAFT">
         <button onclick="closeForm()">CLOSE FORM</button>
-        <p>Posting will immediately close this popup and will reload the page after a while</p>
+
+        <div id="mask">
+            <h3>POSTING</h3>
+            <div>
+                <h4>
+                    <p>🚀</p>
+                </h4>
+            </div>
+            <p class="post_result"></p>
+        </div>
+
     </form>
 
-    <h5 onclick="createPost(null, null)">NEW</h5>
+    <h5 class="new" onclick="createPost(null, null)">NEW</h5>
 
     <script src="app.js"></script>
     <script src="form.js"></script>

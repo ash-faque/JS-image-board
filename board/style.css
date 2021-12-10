@@ -17,7 +17,7 @@ header{
     height: 150px;
     
     background: #424242;
-    color: #000000;
+    color: #bebebe;
 
     display: flex;
     align-items: center;
@@ -28,17 +28,7 @@ header{
 h1{
     font-size: 50px;
 }
-h5{
-    position: fixed;
-    bottom:0px;
-    right: 0px;
 
-    border-radius: 10px;
-    padding: 10px;
-
-    background: #313131;
-    color: #b4b4b4;
-}
 
 
 .error{
@@ -55,18 +45,7 @@ h5{
     letter-spacing: 5px;
 }
 .loading{
-    color: #01ebcb;
-    animation: pulse 500ms ease infinite;
-}
-@keyframes pulse {
-    0%{
-        filter: hue-rotate(0deg);
-        transform: scale(.9);
-    }
-    100%{
-        filter: hue-rotate(360deg);
-        transform: scale(1.1);
-    }
+    color: #0003b6;
 }
 
 
@@ -174,6 +153,7 @@ main{
     color: #1f1f1f;
 
     margin-right: 10px;
+    margin-bottom: 10px;
 
     padding: 5px 10px;
     border-radius: 5px;

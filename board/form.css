@@ -1,6 +1,23 @@
+.new{
+    z-index: 800;
+
+    position: fixed;
+    bottom:0px;
+    right: 0px;
+
+    border-radius: 10px;
+    padding: 10px;
+
+    background: #313131;
+    color: #b4b4b4;
+}
+
+
 
 #post{
     display: none;
+
+    z-index: 1000;
 
     position: fixed;
     top: 0;
@@ -81,4 +98,86 @@ button{
 
 #post p{
     font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+#mask{
+    display: none;
+
+    z-index: 1000;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background: #000000e8;
+    color: #ebebeb;
+
+    align-items: center;
+    justify-content: center;
+}
+#mask h3{
+    position: absolute;
+
+    font-size: 50px;
+    font-family: monospace;
+}
+#mask div{
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#mask div h4{
+
+    width: 100%;
+    text-align: left;
+
+    animation: revolve 1s infinite ease-in-out;
+}
+#mask div h4 p{
+    width: 50px;
+    height: 50px;
+
+    font-size: 30px;
+    
+    transform: rotate(-45deg);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@keyframes revolve {
+    0%{
+        
+        transform: rotate(0deg);
+    }
+    100%{
+        
+        transform: rotate(360deg);
+    }
+}
+
+.post_result{
+    position: absolute;
+    bottom: 20vh;
+
+    font-size: 30px;
+    color: yellow;
+    font-family: monospace;
 }

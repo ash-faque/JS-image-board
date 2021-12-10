@@ -1,3 +1,8 @@
+
+const mask = document.getElementById('mask');
+const post_result = document.querySelector('.post_result');
+
+
 // post uploading fn
 const post = (e) => {
     e.preventDefault();
@@ -10,6 +15,9 @@ const post = (e) => {
     formData.append("replyTo", REPLY_TO);
     formData.append("childOf", CHILD_OF);
 
+
+    mask.style.display = 'flex';
+
     fetch(`${API}/post`, {
         method: "POST",
         body: formData
@@ -19,11 +27,16 @@ const post = (e) => {
                 case "✅":
                     console.log(res.msg);
 
-                    location.reload();
+                    post_result.innerHTML = `${res.msg}`;
+                    
+                    setTimeout(closeForm, 3000);
 
                     break;
                 case "💔":
                     console.error(res.msg);
+
+                    post_result.innerHTML = `${res.msg}`;
+
                     break;
                 default:
                     console.log(res);
@@ -34,7 +47,6 @@ const post = (e) => {
         console.log(e)
     });
 
-    closeForm();
 };
 
 
@@ -51,6 +63,10 @@ const createPost = (direct_parent, topmost_parent) => {
 
 // close form
 const closeForm = () => {
+    mask.style.display = 'none';
+
+    post_result.innerHTML = ``;
+
     REPLY_TO = null;
     CHILD_OF = null;
 
