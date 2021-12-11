@@ -57,12 +57,11 @@ const post = (e) => {
 };
 
 // close form
-const closeForm = (btn) => {
-    btn.parentElement.style.display = 'none';
+const closeForm = () => {
+    post_form.style.display = 'none';
 
     REPLY_TO = null;
     CHILD_OF = null;
-
 };
 
 // create new post opener

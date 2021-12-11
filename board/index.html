@@ -23,29 +23,29 @@
     <main></main>
     
     <form id="post" onsubmit="post(event)">
+        <div class="wrapper">
+            <h2>REQUEST METADATA</h2>
 
-        <h2>REQUEST METADATA</h2>
+            <div id="post_result">RESULT TEXT</div>
 
-        <div id="post_result">RESULT TEXT</div>
+            <label for="image">
+                <div class="images_to_post">
+                    <canvas id="thumbnail"></canvas>
+                    <img alt="preview" id="preview"
+                        src="../img/apple-touch-icon.png">
+                </div>
+            </label>
+            <input type="file" accept="image/*"
+                name="image" id="image" 
+                oninput="loadPreview(event)">
+                
+            <textarea name="description" id="description"
+                required rows="5" placeholder="text here"></textarea>
 
-        <label for="image">
-            <div class="images_to_post">
-                <canvas id="thumbnail"></canvas>
-                <img alt="preview" id="preview"
-                    src="../img/apple-touch-icon.png">
-            </div>
-        </label>
-        <input type="file" accept="image/*"
-            name="image" id="image" 
-            oninput="loadPreview(event)">
-            
-        <textarea name="description" id="description"
-            required rows="5" placeholder="text here"></textarea>
+            <input type="submit" value="POST DRAFT">
 
-        <input type="submit" value="POST DRAFT">
-
-        <button onclick="closeForm(this)">CLOSE FORM</button>
-
+            <button type="button" onclick="closeForm()">CLOSE FORM</button>
+        </div>
     </form>
 
     <div id="mask">

@@ -15,9 +15,13 @@
 
     padding: 50px 20px;
 
-    background: #7c94c4;
+    background: #3a3c3f;
 
     text-align: center;
+}
+#post .wrapper{
+    width: clamp(280px, 100%, 720px);
+    margin: 0 auto;
 }
 
 #post h2{
@@ -55,7 +59,7 @@
     left: 0;
     top: 0;
 
-    border: #000000 2px solid;
+    border: #000000 1px solid;
 }
 #preview{
     max-width: 100%;
@@ -72,7 +76,7 @@
     margin-top: 20px;
 
     font-size: 25px;
-    border: 3px #000000 solid;
+    border: 2px #000000 solid;
     outline: none;
 }
 
@@ -113,7 +117,7 @@ button{
     font-size: 30px;
     padding: 20px;
     margin: 20px 0;
-    background: #000000b9;
+    background: #00000028;
 }
 
 

@@ -1,5 +1,5 @@
 // Cache names
-const PRE_CACHE_NAME = 'PRE_V3';
+const PRE_CACHE_NAME = 'PRE_V4';
 const DYNAMIC_CACHE_NAME = 'DYNAMIC_V1';
 // Cache assets
 const PRE_CACHE_ASSETS = [
@@ -66,7 +66,7 @@ self.addEventListener('fetch', event => {
 	// for non-GET requests.
 	if (event.request.method != 'GET') return;
 	// if (event.request.url.contains('wzicaa.deta.dev')) return;
-	console.log(event.request.url)
+	// console.log(event.request.url)
 
 	// Prevent the default, and handle the request ourselves.
 	event.respondWith(async function () {

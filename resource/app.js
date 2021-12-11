@@ -1,7 +1,7 @@
 
 let SITE =  location.protocol + '//' + location.host;
 
-console.log(SITE)
+// console.log(SITE)
 const loadBoards = () => {
     fetch(`resource/boards.json`)
         .then(r => {
