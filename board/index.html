@@ -10,17 +10,30 @@
 </head>
 <body>
     
-    <header><h1></h1></header>
+    <p class="go_back" onclick="location = SITE">🏡</p>
+    <p class="new" onclick="createPost(null, null)">➕</p>
+    <p id="del_btn">#</p>
+
+
+    <header>
+        <div id="del_res"></div>
+        <h1 ondblclick="setMasterKey()"></h1>
+    </header>
 
     <main></main>
     
     <form id="post" onsubmit="post(event)">
 
-        <h2>--- --- -- ---</h2>
+        <h2>REQUEST METADATA</h2>
+
+        <div id="post_result">RESULT TEXT</div>
 
         <label for="image">
-            <img alt="preview" id="preview"
-                src="../img/apple-touch-icon.png">
+            <div class="images_to_post">
+                <canvas id="thumbnail"></canvas>
+                <img alt="preview" id="preview"
+                    src="../img/apple-touch-icon.png">
+            </div>
         </label>
         <input type="file" accept="image/*"
             name="image" id="image" 
@@ -28,22 +41,25 @@
             
         <textarea name="description" id="description"
             required rows="5" placeholder="text here"></textarea>
-        <input type="submit" value="POST DRAFT">
-        <button onclick="closeForm()">CLOSE FORM</button>
 
-        <div id="mask">
-            <h3>POSTING</h3>
-            <div>
-                <h4>
-                    <p>🚀</p>
-                </h4>
-            </div>
-            <p class="post_result"></p>
-        </div>
+        <input type="submit" value="POST DRAFT">
+
+        <button onclick="closeForm(this)">CLOSE FORM</button>
 
     </form>
 
-    <h5 class="new" onclick="createPost(null, null)">NEW</h5>
+    <div id="mask">
+        <h3>WAIT</h3>
+        <div>
+            <h4 style="--delay: 0ms"><p></p></h4>
+            <h4 style="--delay: 75ms"><p></p></h4>
+            <h4 style="--delay: 150ms"><p></p></h4>
+            <h4 style="--delay: 225ms"><p></p></h4>
+        </div>
+        <h3 id="mask_text"></h3>
+    </div>
+
+
 
     <script src="app.js"></script>
     <script src="form.js"></script>

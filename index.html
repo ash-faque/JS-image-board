@@ -29,12 +29,12 @@
 
     <title>COCO-CHAN</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/resource/style.css">
 
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
 </head>
 <body>
@@ -43,7 +43,16 @@
 
     <main></main>
 
-    <script src="app.js"></script>
+    <script src="/resource/app.js"></script>
+
+    <!-- service worker -->
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('⚙ Service worker: REGISTERED'))
+                .catch(err => console.log('⚙ Service worker: FAILED TO REGISTER', err));
+        };
+    </script>
 
 </body>
 </html>

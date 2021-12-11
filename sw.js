@@ -1,13 +1,14 @@
 // Cache names
-const PRE_CACHE_NAME = 'PRE_V2';
+const PRE_CACHE_NAME = 'PRE_V3';
 const DYNAMIC_CACHE_NAME = 'DYNAMIC_V1';
 // Cache assets
 const PRE_CACHE_ASSETS = [
 	'/',
 	'/index.html',
-	'/app.js',
-	'/boards.json',
-	'/style.css',
+
+	'resource/app.js',
+	'resource/boards.json',
+	'resource/style.css',
 
 	'/board/index.html',
 	'/board/app.js',
@@ -74,7 +75,7 @@ self.addEventListener('fetch', event => {
 		const cachedResponse = await cache.match(event.request.url.split("?")[0].split("#")[0]);
 
 		if (cachedResponse) {
-			console.log('cache matched')
+			// console.log('cache matched')
 			// If we found a match in the cache, return it, but also
 			// update the entry in the cache in the background.
 			// event.waitUntil(cache.add(event.request));

@@ -1,18 +1,3 @@
-.new{
-    z-index: 800;
-
-    position: fixed;
-    bottom:0px;
-    right: 0px;
-
-    border-radius: 10px;
-    padding: 10px;
-
-    background: #313131;
-    color: #b4b4b4;
-}
-
-
 
 #post{
     display: none;
@@ -28,10 +13,9 @@
     overflow-y: scroll;
     overflow-x: hidden;
 
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 50px 20px;
 
-    background: #667592;
+    background: #7c94c4;
 
     text-align: center;
 }
@@ -43,9 +27,38 @@
     text-decoration: underline;
 }
 
-#post img{
-    max-width: 60%;
-    margin: 20px 20%;
+.images_to_post{
+    position: relative;
+    display: block;
+    width: 100%;
+
+    margin: 20px 0;
+    border: #000000 2px solid;
+}
+.images_to_post::after{
+    content: 'Touch to select image';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: #00000027;
+    color: #000000;
+    font-weight: 900;
+    font-family: monospace;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#thumbnail{
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    border: #000000 2px solid;
+}
+#preview{
+    max-width: 100%;
 }
 
 #post textarea{
@@ -96,20 +109,18 @@ button{
     color: #ebebeb;
 }
 
-#post p{
-    font-size: 15px;
+#post_result{
+    font-size: 30px;
+    padding: 20px;
+    margin: 20px 0;
+    background: #000000b9;
 }
 
 
 
 
 
-
-
-
-
-
-
+/* mask */
 #mask{
     display: none;
 
@@ -121,8 +132,8 @@ button{
     bottom: 0;
     right: 0;
 
-    background: #000000e8;
-    color: #ebebeb;
+    background: #000000f1;
+    color: #fafafa;
 
     align-items: center;
     justify-content: center;
@@ -135,44 +146,54 @@ button{
 }
 #mask div{
     position: absolute;
-    width: 60vw;
-    height: 60vw;
+    width: clamp(240px, 50%, 480px);
+    height: clamp(240px, 50%, 480px);
 
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
+    animation: revolve 1000ms infinite reverse;
 }
 #mask div h4{
+    position: absolute;
 
     width: 100%;
     text-align: left;
 
-    animation: revolve 1s infinite ease-in-out;
+    animation: revolve 500ms var(--delay) infinite ease-in-out;
 }
 #mask div h4 p{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 
-    font-size: 30px;
-    
-    transform: rotate(-45deg);
+    background: #ff1f1f;
     
     display: flex;
     align-items: center;
     justify-content: center;
+
+    animation: scaler 700ms var(--delay) infinite;
 }
 @keyframes revolve {
     0%{
-        
+        filter: hue-rotate(0deg);
         transform: rotate(0deg);
     }
     100%{
-        
+        filter: hue-rotate(360deg);
         transform: rotate(360deg);
     }
 }
-
+@keyframes scaler {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
 .post_result{
     position: absolute;
     bottom: 20vh;

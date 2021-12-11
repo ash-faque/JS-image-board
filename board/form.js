@@ -1,7 +1,6 @@
+const post_result = document.getElementById('post_result');
 
-const mask = document.getElementById('mask');
-const post_result = document.querySelector('.post_result');
-
+let THUMB_DATA = '';
 
 // post uploading fn
 const post = (e) => {
@@ -14,41 +13,57 @@ const post = (e) => {
     formData.append("description", post_form.description.value);
     formData.append("replyTo", REPLY_TO);
     formData.append("childOf", CHILD_OF);
-
+    formData.append('thumbnail', THUMB_DATA);
 
     mask.style.display = 'flex';
+    mask_text.innerHTML = `<p class="info">POSTING</p>`;
 
     fetch(`${API}/post`, {
         method: "POST",
         body: formData
     }).then(r => {
         r.json().then(res => {
+
+            mask.style.display = 'none';
+            mask_text.innerHTML = ``;
+
             switch(res.code){
                 case "✅":
                     console.log(res.msg);
-
-                    post_result.innerHTML = `${res.msg}`;
-                    
-                    setTimeout(closeForm, 3000);
-
+                    post_result.innerHTML = `<p class="success">${res.msg}</p>`;
+                    post_form.reset();
+                    toBoard();
                     break;
                 case "💔":
                     console.error(res.msg);
-
-                    post_result.innerHTML = `${res.msg}`;
-
+                    post_result.innerHTML = `<p class="error">${res.msg}</p>`;
                     break;
                 default:
                     console.log(res);
+                    post_result.innerHTML = `<p class="error">${res}</p>`;
                     break;
             };
+
+            post_result.scrollIntoView();
+
         });
     }).catch(e => {  
-        console.log(e)
+        console.log(e);
+        mask.style.display = 'none';
+        mask_text.innerHTML = ``;
+        post_result.innerHTML = `<p class="error">${e}</p>`;
     });
 
 };
 
+// close form
+const closeForm = (btn) => {
+    btn.parentElement.style.display = 'none';
+
+    REPLY_TO = null;
+    CHILD_OF = null;
+
+};
 
 // create new post opener
 const createPost = (direct_parent, topmost_parent) => {
@@ -61,22 +76,11 @@ const createPost = (direct_parent, topmost_parent) => {
     post_form.scrollIntoView();
 };
 
-// close form
-const closeForm = () => {
-    mask.style.display = 'none';
-
-    post_result.innerHTML = ``;
-
-    REPLY_TO = null;
-    CHILD_OF = null;
-
-    post_form.reset();
-    post_form.style.display = 'none';
-};
-
 
 // image selection previewer
 const loadPreview = (e) => {
+    THUMB_DATA = '';
+
     let output = document.getElementById('preview');
     try{
         output.src = URL.createObjectURL(e.target.files[0]);
@@ -89,5 +93,25 @@ const loadPreview = (e) => {
         // toast(`ERROR: ${e}`)
         console.log(e)
     };
-    output.onload = () => URL.revokeObjectURL(output.src);
+    output.onload = () => {
+        URL.revokeObjectURL(output.src);
+        createThumbData(output);
+    };
+};
+
+
+// make thumbnail
+const createThumbData = (original) => {
+    let canvas = document.getElementById("thumbnail");
+
+    let scale = 0.15;
+
+    canvas.width = original.width * scale;
+    canvas.height = original.height * scale;
+  
+    canvas.getContext("2d").drawImage(original, 0, 0, canvas.width, canvas.height);
+  
+    THUMB_DATA = canvas.toDataURL("image/png");
+
+    console.log(THUMB_DATA);
 };

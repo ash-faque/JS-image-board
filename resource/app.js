@@ -1,9 +1,9 @@
 
-let SITE = `http://127.0.0.1:5500`;
-    SITE = `https://cocolite.netlify.app`;
+let SITE =  location.protocol + '//' + location.host;
 
+console.log(SITE)
 const loadBoards = () => {
-    fetch(`boards.json`)
+    fetch(`resource/boards.json`)
         .then(r => {
             r.json()
                 .then(res => {
@@ -30,12 +30,3 @@ const loadBoards = () => {
 };
 
 loadBoards();
-
-
-
-// service worker
-// if('serviceWorker' in navigator){
-//     navigator.serviceWorker.register('/sw.js')
-//         .then(reg => console.log('⚙ Service worker: REGISTERED'))
-//         .catch(err => console.log('⚙ Service worker: FAILED TO REGISTER', err));
-// };
