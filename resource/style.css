@@ -11,8 +11,11 @@ html, body{
 }
 
 header{
+    position: sticky;
+    top: 0;
+
     width: 100%;
-    height: 150px;
+    height: 100px;
     
     background: #424242;
     color: #b3b3b3;

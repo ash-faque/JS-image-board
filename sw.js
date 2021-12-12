@@ -1,5 +1,5 @@
 // Cache names
-const PRE_CACHE_NAME = 'PRE_V5';
+const PRE_CACHE_NAME = 'PRE_V6';
 const DYNAMIC_CACHE_NAME = 'DYNAMIC_V1';
 // Cache assets
 const PRE_CACHE_ASSETS = [

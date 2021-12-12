@@ -126,9 +126,7 @@ const showBoardContent = (result) => {
                         </div>
                         <div class="childs">
                             <p onclick="loadComments('${key}', this.parentElement)"
-                                class="comment_load_trigger" style="color: #404040;"> 
-                                LOAD COMENTS${(childCount !== 'null') ? ` (${childCount})` : ''} 
-                            </p>
+                                class="comment_load_trigger" style="color: #404040;">COMENTS</p>
                         </div>`;
 
         main.appendChild(div);
