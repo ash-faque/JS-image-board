@@ -28,8 +28,8 @@ html, body{
 
     background: #727272;
     color: #080808;
-    box-shadow: 0 0 10px #000000;
-
+    filter: grayscale(10);
+    
     font-family: monospace;
     font-weight: 900;
     font-size: 25px;

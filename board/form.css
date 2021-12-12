@@ -136,7 +136,7 @@ button{
     bottom: 0;
     right: 0;
 
-    background: #000000f1;
+    background: #202020;
     color: #fafafa;
 
     align-items: center;
@@ -150,8 +150,8 @@ button{
 }
 #mask div{
     position: absolute;
-    width: clamp(240px, 50%, 480px);
-    height: clamp(240px, 50%, 480px);
+    width: clamp(240px, 50%, 460px);
+    height: clamp(240px, 50%, 460px);
 
     display: flex;
     align-items: center;
